@@ -1,0 +1,31 @@
+{
+  "name": "discordbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "ascii-table": "0.0.9",
+    "canvas": "^2.8.0",
+    "discanvas": "^1.5.5",
+    "discord-fivem-api": "^1.0.6",
+    "discord.js": "^12.5.3",
+    "distube": "^2.8.15",
+    "ffmpeg-static": "^4.4.0",
+    "first-message": "^1.0.3",
+    "fs": "0.0.1-security",
+    "json": "^11.0.0",
+    "mongoose": "^5.11.15",
+    "mysql": "^2.18.1",
+    "nekos.life": "^2.0.7",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "request-promise-native": "^1.0.9",
+    "ytdl-core": "^4.9.1"
+  }
+}
