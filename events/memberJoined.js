@@ -9,7 +9,7 @@ module.exports = {
     event: 'guildMemberAdd',
     run: async (member, client) => {
 
-        mysqlhandler.con.query(`SELECT * FROM botsettings WHERE id = '${member.guild.id}'`, (err, rows) => {
+        mysqlhandler.con.query(`SELECT * FROM haneul_welcome WHERE id = '${member.guild.id}'`, (err, rows) => {
             if (err) throw err;
 
             let sql;
@@ -17,12 +17,12 @@ module.exports = {
             if (rows.length < 1) {
 
             } else {
-                let welcometoggle = rows[0].welcometoggle;
-                let welcomeChannel = rows[0].welcomeChannel;
-                let welcomeMessage = rows[0].welcomeMessage;
-                let welcomeImage = rows[0].welcomeImage;
+                let welcometoggle = rows[0].welcome_toggle;
+                let welcomeChannel = rows[0].welcome_channel;
+                let welcomeMessage = rows[0].welcome_message;
+                let welcomeImage = rows[0].welcome_image;
 
-                if (welcometoggle === null) {
+                if (welcometoggle === '0') {
 
                 } else {
                     sendWelcome(member, client, welcometoggle, welcomeChannel, welcomeMessage, welcomeImage)
@@ -33,7 +33,7 @@ module.exports = {
 };
 
 async function sendWelcome(member, client, welcometoggle, welcomeChannel, welcomeMessage, welcomeImage) {
-    if (welcometoggle === 'on') {
+    if (welcometoggle === '1') {
         const welcome = await new discanvas.Welcome()
             .setAvatar(member.user.displayAvatarURL({ format: 'png' }))
             .setUsername(member.user.tag)

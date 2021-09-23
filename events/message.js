@@ -1,11 +1,13 @@
 const Discord = require('discord.js');
 const mysqlhandler = require("../handler/mysql.js");
 const { PREFIX } = require('../utils/config.json');
+const setup_generell = require("../handler/setup_generell.js");
 
 module.exports = {
 	event: 'message',
 	run: async (message, client) => {
 		if (!message.content.startsWith(PREFIX) || message.author.bot) return;
+		setup_generell.set("haneul_welcome", message.guild.id);
 		const args = message.content.slice(PREFIX.length).split(/ +/);
 		const commandName = args.shift().toLowerCase();
 		const command =

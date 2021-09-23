@@ -15,38 +15,11 @@ module.exports = {
 		const { commands } = message.client;
 		let channelid = message.channel.id;
 
-		// Check Bot is Bind to a Channel
-		mysqlhandler.con.query(`SELECT * FROM botsettings WHERE id = '${message.guild.id}'`, (err, rows) => {
-            if (err) throw err;
-    
-            let sql;
-
-            if (rows.length < 1) {
-
-			 } else {
-                let value = rows[0].generellbouncechannel;
-				if (value === null) {
-
-				} else {
-					channelid = value;
-					if (!message.guild.channels.cache.get(channelid)) {
-						channelid = message.channel.id;
-						const cmdHelpEmbed = new Discord.MessageEmbed()
-						.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
-						.addField('**__NOTE__**', 'The bind channel of the bot was not recognised or deleted. Reconnect it to a channel or reset it.', false)
-						.setColor(embedError);
-						client.channels.cache.get(channelid).send(cmdHelpEmbed);
-						return
-					}
-				}
-            }
-        });
-
         setTimeout(() => {
 
             if (!message.member.hasPermission("ADMINISTRATOR")) {
                 const cmdHelpEmbed = new Discord.MessageEmbed()
-                .setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+                .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                 .setThumbnail('https://media.discordapp.net/attachments/827195116766363651/873550975904919642/anime-no.gif')
                 .addField('Error', NOPERMS, false)
                 .setColor(embedError);
@@ -56,7 +29,7 @@ module.exports = {
     
             if (!args.length) {
 
-                mysqlhandler.con.query(`SELECT * FROM botsettings WHERE id = '${message.guild.id}'`, (err, rows) => {
+                mysqlhandler.con.query(`SELECT * FROM haneul_welcome WHERE id = '${message.guild.id}'`, (err, rows) => {
                     if (err) throw err;
 
                     let sql;
@@ -64,32 +37,30 @@ module.exports = {
                     if (rows.length < 1) {
 
                     } else {
-                        let value = rows[0].welcometoggle;
-                        if (value === null) {
-
-                        } else {
-
-                            if (value === 'on') {
+                        let value = rows[0].welcome_toggle;
+                        if(!value) return;
+                            if (value == '1') {
                                 const cmdHelpEmbed = new Discord.MessageEmbed()
-                                .setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+                                .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                                 .addField('Successfully', 'The welcome function is now switched **off**', false)
                                 .setColor(embedColor);
                                 client.channels.cache.get(channelid).send(cmdHelpEmbed);
 
-                                sql = `UPDATE botsettings SET welcometoggle = '` + 'off' + `' WHERE id='${message.guild.id}'`;
+                                sql = `UPDATE haneul_welcome SET welcome_toggle = '` + '0' + `' WHERE id='${message.guild.id}'`;
                                 mysqlhandler.con.query(sql);
-                            } else {
+                            } 
+                            if (value == '0') {
                                 const cmdHelpEmbed = new Discord.MessageEmbed()
-                                .setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+                                .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                                 .addField('Successfully', 'The welcome function is now switched **on**', false)
                                 .setColor(embedColor);
                                 client.channels.cache.get(channelid).send(cmdHelpEmbed);
 
-                                sql = `UPDATE botsettings SET welcometoggle = '` + 'on' + `' WHERE id='${message.guild.id}'`;
+                                sql = `UPDATE haneul_welcome SET welcome_toggle = '` + '1' + `' WHERE id='${message.guild.id}'`;
                                 mysqlhandler.con.query(sql);
                             }
 
-                        }
+                        
                     }
                 });
             }

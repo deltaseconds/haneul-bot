@@ -3,10 +3,10 @@ const mysql = require("mysql");
 const config = require("../utils/config.json");
 
 var con = mysql.createConnection({
-    host: 'soulparadise.net',
-    user: 'aichan',
-    password: 'test123',
-    database: 'aichan',
+    host: 'web8781.cweb04.gamingweb.de',
+    user: 'kogeki',
+    password: 'X34Z9JJiK31',
+    database: 'discordbots',
     charset : 'utf8mb4'
 });
 

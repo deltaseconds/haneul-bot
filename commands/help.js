@@ -47,14 +47,14 @@ module.exports = {
 			if (!args.length) {
 				const cmdHelpEmbed = new Discord.MessageEmbed()
 					.setAuthor('Haneul A.I. (' + VERSION + ') - A list of all available commands', IMAGE_INFOEMBED)
-					.setDescription('To check out a section or command use `h!help [command]`.\nExample: `h!help Moderation` or\nfurther information on a command: `h!help clear`.\n\n[[Invite me](https://discord.haneul.xyz)] [[Support via Discord](https://discord.gg/soulparadise)] [[Vote](https://discord.haneul.xyz)]')
+					.setDescription('To check out a section or command use `h!help [command]`.\nExample: `h!help Moderation` or\nfurther information on a command: `h!help clear`.\n\n[[Invite me](https://discord.haneul.xyz)] [[Support via Discord]()] [[Vote](https://discord.haneul.xyz)]')
 					.setColor(embedColor)
 					.addFields(
 						{ name: '⚙️ Automation', value: '*Automatically do things, like casting roles on join*', inline: true },
 						{ name: ':shield: Moderation', value: '*Moderate your server and user!*', inline: true },
 						{ name: ':wrench: Bot-Settings', value: '*Bot settings to customize*', inline: true },
 						{ name: '<a:gaminggirl:873384224713998376> __Enjoy some fun stuff with all of these sections__', value: '*With these commands, you or your community can fill their free time and do some anime stuff.*' },
-						{ name: '<:pinkcoffee:870299980026499113> Profile', value: '*Check out your own profile on Haneul A.I.*', inline: true },
+						{ name: '<:zerotwowave:869226216555675679> Profile', value: '*Check out your own profile on Haneul A.I.*', inline: true },
 						{ name: ':game_die: Gambling', value: '*Waste your time with gambling*', inline: true },
 						{ name: '<a:star:870301063834656788> Anime', value: '*Anime and manga stuff*', inline: true },
 						{ name: '**__NOTE__**', value: 'If a channel is missing that had certain functions bind to it, the bot will not return anything. Also be sure to put the bots roles over the level reward roles and give the bot **KICK_MEMBERS, BAN_MEMBERS, MANAGE_MESSAGES, MUTE_MEMBERS, MANAGE_ROLES** permission to flawlessly function.' },

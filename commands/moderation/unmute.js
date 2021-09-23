@@ -15,38 +15,11 @@ module.exports = {
         const { commands } = message.client;
         let channelid = message.channel.id;
 
-        // Check Bot is Bind to a Channel
-        mysqlhandler.con.query(`SELECT * FROM botsettings WHERE id = '${message.guild.id}'`, (err, rows) => {
-            if (err) throw err;
-
-            let sql;
-
-            if (rows.length < 1) {
-
-            } else {
-                let value = rows[0].generellbouncechannel;
-                if (value === null) {
-
-                } else {
-                    channelid = value;
-                    if (!message.guild.channels.cache.get(channelid)) {
-                        channelid = message.channel.id;
-                        const cmdHelpEmbed = new Discord.MessageEmbed()
-                            .setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
-                            .addField('**__NOTE__**', 'The bind channel of the bot was not recognised or deleted. Reconnect it to a channel or reset it.', false)
-                            .setColor(embedError);
-                        client.channels.cache.get(channelid).send(cmdHelpEmbed);
-                        return
-                    }
-                }
-            }
-        });
-
         setTimeout(() => {
 
             if (!message.member.hasPermission("BAN_MEMBERS")) {
                 const cmdHelpEmbed = new Discord.MessageEmbed()
-                    .setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+                    .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                     .setThumbnail('https://media.discordapp.net/attachments/827195116766363651/873550975904919642/anime-no.gif')
                     .addField('Error', NOPERMS, false)
                     .setColor(embedError);
@@ -56,7 +29,7 @@ module.exports = {
 
             if (!args.length) {
                 const cmdHelpEmbed = new Discord.MessageEmbed()
-                    .setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+                    .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                     .addField('Error', 'Use `' + PREFIX + 'unmute' + ' <@user>` to unmute a User', false)
                     .setColor(embedError);
                 client.channels.cache.get(channelid).send(cmdHelpEmbed);
@@ -67,7 +40,7 @@ module.exports = {
 
             if (!user) {
                 const cmdHelpEmbed = new Discord.MessageEmbed()
-                    .setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+                    .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                     .addField('Error', 'Use `' + PREFIX + 'unmute' + ' <@user>` to unmute a User', false)
                     .setColor(embedError);
                 client.channels.cache.get(channelid).send(cmdHelpEmbed);
@@ -82,7 +55,7 @@ module.exports = {
                 if (rows.length < 1) {
 
                     const cmdHelpEmbed = new Discord.MessageEmbed()
-                        .setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+                        .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                         .addField('Error', 'The user was not found', false)
                         .setColor(embedError);
                     client.channels.cache.get(channelid).send(cmdHelpEmbed);
@@ -91,7 +64,7 @@ module.exports = {
                 } else {
 
                     const cmdHelpEmbed = new Discord.MessageEmbed()
-                        .setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+                        .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                         .addField('Information', 'The user was unmuted', false)
                         .addField('User', '' + user.username + '', false)
                         .setColor(embedColor);

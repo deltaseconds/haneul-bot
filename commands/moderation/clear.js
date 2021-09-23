@@ -15,7 +15,7 @@ module.exports = {
 
 		if (!message.member.hasPermission("BAN_MEMBERS")) {
 			const cmdHelpEmbed = new Discord.MessageEmbed()
-			.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+			.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 			.setThumbnail('https://media.discordapp.net/attachments/827195116766363651/873550975904919642/anime-no.gif')
 			.addField('Error', NOPERMS, false)
 			.setColor(embedError);
@@ -25,7 +25,7 @@ module.exports = {
 
 		if (!args.length) {
 			const cmdHelpEmbed = new Discord.MessageEmbed()
-			.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+			.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 			.addField('Error', 'Use `' + PREFIX + 'clear' + ' 20` to delete 20 messages', false)
 			.setColor(embedError);
 			client.channels.cache.get(message.channel.id).send(cmdHelpEmbed);
@@ -34,7 +34,7 @@ module.exports = {
 
 		if (isNaN(args[0])) {
 			const cmdHelpEmbed = new Discord.MessageEmbed()
-			.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+			.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 			.addField('Error', 'You must enter a number', false)
 			.setColor(embedError);
 			client.channels.cache.get(message.channel.id).send(cmdHelpEmbed);
@@ -42,7 +42,7 @@ module.exports = {
 		}
 		if (args[0] <= 0) {
 			const cmdHelpEmbed = new Discord.MessageEmbed()
-			.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+			.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 			.addField('Error', 'You must enter a number', false)
 			.setColor(embedError);
 			client.channels.cache.get(message.channel.id).send(cmdHelpEmbed);
@@ -50,7 +50,7 @@ module.exports = {
 		}
         if (args[0] >= 100) {
 			const cmdHelpEmbed = new Discord.MessageEmbed()
-			.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+			.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 			.addField('Error', 'The number must be below 100', false)
 			.setColor(embedError);
 			client.channels.cache.get(message.channel.id).send(cmdHelpEmbed);
@@ -62,7 +62,7 @@ module.exports = {
 			setTimeout(() => {
 
 				const cmdHelpEmbed = new Discord.MessageEmbed()
-				.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+				.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 				.addField('Successfully', 'Deleted **' + args[0] + '** messages', false)
 				.setColor(embedColor);
 				client.channels.cache.get(message.channel.id).send(cmdHelpEmbed).then(msg => msg.delete({ timeout: "5000" }))

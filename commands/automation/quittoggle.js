@@ -5,7 +5,7 @@ const embedColor = COLORS.default;
 const embedError = COLORS.error;
 
 module.exports = {
-	name: 'quittoggle',
+	name: 'quit_toggle',
 	description: 'Toggle the Quit Message function',
 	aliases: [],
 	usage: '',
@@ -16,7 +16,7 @@ module.exports = {
 		let channelid = message.channel.id;
 
 		// Check Bot is Bind to a Channel
-		mysqlhandler.con.query(`SELECT * FROM botsettings WHERE id = '${message.guild.id}'`, (err, rows) => {
+		mysqlhandler.con.query(`SELECT * FROM haneul_quit WHERE id = '${message.guild.id}'`, (err, rows) => {
             if (err) throw err;
     
             let sql;
@@ -32,7 +32,7 @@ module.exports = {
 					if (!message.guild.channels.cache.get(channelid)) {
 						channelid = message.channel.id;
 						const cmdHelpEmbed = new Discord.MessageEmbed()
-						.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+						.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 						.addField('**__NOTE__**', 'The bind channel of the bot was not recognised or deleted. Reconnect it to a channel or reset it.', false)
 						.setColor(embedError);
 						client.channels.cache.get(channelid).send(cmdHelpEmbed);
@@ -46,7 +46,7 @@ module.exports = {
 
             if (!message.member.hasPermission("ADMINISTRATOR")) {
                 const cmdHelpEmbed = new Discord.MessageEmbed()
-                .setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+                .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                 .setThumbnail('https://media.discordapp.net/attachments/827195116766363651/873550975904919642/anime-no.gif')
                 .addField('Error', NOPERMS, false)
                 .setColor(embedError);
@@ -56,7 +56,7 @@ module.exports = {
     
             if (!args.length) {
 
-                mysqlhandler.con.query(`SELECT * FROM botsettings WHERE id = '${message.guild.id}'`, (err, rows) => {
+                mysqlhandler.con.query(`SELECT * FROM haneul_quit WHERE id = '${message.guild.id}'`, (err, rows) => {
                     if (err) throw err;
 
                     let sql;
@@ -64,28 +64,29 @@ module.exports = {
                     if (rows.length < 1) {
 
                     } else {
-                        let value = rows[0].quittoggle;
+                        let value = rows[0].quit_toggle;
                         if (value === null) {
 
                         } else {
 
-                            if (value === 'on') {
+                            if (value == '1') {
                                 const cmdHelpEmbed = new Discord.MessageEmbed()
-                                .setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+                                .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                                 .addField('Successfully', 'The quit function is now switched **off**', false)
                                 .setColor(embedColor);
                                 client.channels.cache.get(channelid).send(cmdHelpEmbed);
 
-                                sql = `UPDATE botsettings SET quittoggle = '` + 'off' + `' WHERE id='${message.guild.id}'`;
+                                sql = `UPDATE haneul_quit SET quit_toggle = '` + '0' + `' WHERE id='${message.guild.id}'`;
                                 mysqlhandler.con.query(sql);
-                            } else {
+                            } 
+                            if (value == '0') {
                                 const cmdHelpEmbed = new Discord.MessageEmbed()
-                                .setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+                                .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                                 .addField('Successfully', 'The quit function is now switched **on**', false)
                                 .setColor(embedColor);
                                 client.channels.cache.get(channelid).send(cmdHelpEmbed);
 
-                                sql = `UPDATE botsettings SET quittoggle = '` + 'on' + `' WHERE id='${message.guild.id}'`;
+                                sql = `UPDATE haneul_quit SET quit_toggle = '` + '1' + `' WHERE id='${message.guild.id}'`;
                                 mysqlhandler.con.query(sql);
                             }
 

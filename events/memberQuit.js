@@ -9,7 +9,7 @@ module.exports = {
 	event: 'guildMemberRemove',
 	run: async (member, client) => {
        
-        mysqlhandler.con.query(`SELECT * FROM botsettings WHERE id = '${member.guild.id}'`, (err, rows) => {
+        mysqlhandler.con.query(`SELECT * FROM haneul_quit WHERE id = '${member.guild.id}'`, (err, rows) => {
             if (err) throw err;
     
             let sql;
@@ -17,12 +17,12 @@ module.exports = {
             if (rows.length < 1) {
     
             } else {
-                let quittoggle = rows[0].quittoggle;
-                let quitChannel = rows[0].quitChannel;
-                let quitMessage = rows[0].quitMessage;
-                let quitImage = rows[0].quitImage;
+                let quittoggle = rows[0].quit_toggle;
+                let quitChannel = rows[0].quit_channel;
+                let quitMessage = rows[0].quit_message;
+                let quitImage = rows[0].quit_image;
     
-                if (quittoggle === null) {
+                if (quittoggle === '0') {
     
                 } else {
                     sendQuit(member, client, quittoggle, quitChannel, quitMessage, quitImage)
@@ -33,7 +33,7 @@ module.exports = {
 };
 
 async function sendQuit(member, client, quittoggle, quitChannel, quitMessage, quitImage) {
-    if (quittoggle === 'on') {
+    if (quittoggle === '1') {
 
         const leave = await new discanvas.Leave()
         .setAvatar(member.user.displayAvatarURL({ format: 'png' }))

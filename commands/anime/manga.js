@@ -18,7 +18,7 @@ module.exports = {
 
         if (!args.length) {
             const cmdHelpEmbed = new Discord.MessageEmbed()
-                .setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+                .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                 .addField('Error', 'Use `' + PREFIX + 'manga' + ' <manga>` to search a Manga', false)
                 .setColor(embedError);
             client.channels.cache.get(channelid).send(cmdHelpEmbed);

@@ -16,7 +16,7 @@ module.exports = {
 
 		if (message.guild.ownerID !== message.author.id) {
 			const cmdHelpEmbed = new Discord.MessageEmbed()
-			.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+			.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 			.setThumbnail('https://media.discordapp.net/attachments/827195116766363651/873550975904919642/anime-no.gif')
 			.addField('Error', NOPERMS, false)
 			.setColor(embedError);
@@ -29,7 +29,7 @@ module.exports = {
 			let filter = m => m.author.id === message.author.id
 
 			const cmdHelpEmbed = new Discord.MessageEmbed()
-				.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+				.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 				.addField('Information', 'Please enter the message ID for the channel\n\nThe setup is automatically cancelled after 20 seconds.\nTo cancel the setup, write `cancel` in the chat.\nTo reset the binds channel enter `reset`', false)
 				.setColor(embedColor);
 
@@ -43,7 +43,7 @@ module.exports = {
 						message = message.first()
 						if (message.content === 'cancel') {
 							const cmdHelpEmbed = new Discord.MessageEmbed()
-							.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+							.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 							.addField('Error', 'The setup was cancelled', false)
 							.setColor(embedError);
 							client.channels.cache.get(message.channel.id).send(cmdHelpEmbed);
@@ -62,7 +62,7 @@ module.exports = {
 									let value = rows[0].generellbouncechannel;
 									if (value === null) {
 										const cmdHelpEmbed = new Discord.MessageEmbed()
-											.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+											.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 											.addField('Information', 'The bot was un-bind to a channel', false)
 											.setColor(embedColor);
 										client.channels.cache.get(message.channel.id).send(cmdHelpEmbed);
@@ -71,7 +71,7 @@ module.exports = {
 										mysqlhandler.con.query(sql);
 									} else {
 										const cmdHelpEmbed = new Discord.MessageEmbed()
-											.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+											.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 											.addField('Information', 'The bot was un-bind to a channel', false)
 											.setColor(embedColor);
 										client.channels.cache.get(message.channel.id).send(cmdHelpEmbed);
@@ -86,7 +86,7 @@ module.exports = {
 
 						if (isNaN(message.content)) {
 							const cmdHelpEmbed = new Discord.MessageEmbed()
-							.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+							.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 							.addField('Error', 'You must enter a ChannelID. Example: `868925353043841035`', false)
 							.setColor(embedError);
 							client.channels.cache.get(message.channel.id).send(cmdHelpEmbed);
@@ -95,7 +95,7 @@ module.exports = {
 
 						if (!message.guild.channels.cache.get(message.content)) {
 							const cmdHelpEmbed = new Discord.MessageEmbed()
-							.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+							.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 							.addField('Error', 'The setup was aborted because there is no channel with this ID.', false)
 							.setColor(embedError);
 							client.channels.cache.get(message.channel.id).send(cmdHelpEmbed);
@@ -113,7 +113,7 @@ module.exports = {
 								let value = rows[0].generellbouncechannel;
 								if (value === null) {
 									const cmdHelpEmbed = new Discord.MessageEmbed()
-										.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+										.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 										.addField('Information', 'The bot was re-bind to a channel', false)
 										.addField('Channelname', '<#' + message.content + '>', false)
 										.addField('ChannelID', '`' + message.content + '`', false)
@@ -124,7 +124,7 @@ module.exports = {
 									mysqlhandler.con.query(sql);
 								} else {
 									const cmdHelpEmbed = new Discord.MessageEmbed()
-										.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+										.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 										.addField('Information', 'The bot was re-bind to a channel', false)
 										.addField('Channelname', '<#' + message.content + '>', false)
 										.addField('ChannelID', '`' + message.content + '`', false)
@@ -141,7 +141,7 @@ module.exports = {
 					})
 					.catch(collected => {
 						const cmdHelpEmbed = new Discord.MessageEmbed()
-						.setAuthor('AI-Chan (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+						.setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
 						.addField('Error', 'The setup was cancelled for safety reasons.', false)
 						.setColor(embedError);
 						client.channels.cache.get(message.channel.id).send(cmdHelpEmbed);

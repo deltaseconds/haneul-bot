@@ -5,7 +5,7 @@ const fs = require('fs');
 const config = require("./utils/config.json");
 
 // Import Handler
-// const mysqlhandler = require("./handler/mysql.js");
+const mysqlhandler = require("./handler/mysql.js");
 
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 
@@ -33,10 +33,17 @@ commandHandler('./../commands/automation/quitchannel.js', client);
 commandHandler('./../commands/automation/quitimage.js', client);
 commandHandler('./../commands/automation/quitmessage.js', client);
 commandHandler('./../commands/automation/quittoggle.js', client);
+
 commandHandler('./../commands/automation/welcomechannel.js', client);
 commandHandler('./../commands/automation/welcomeimage.js', client);
 commandHandler('./../commands/automation/welcomemessage.js', client);
 commandHandler('./../commands/automation/welcometoggle.js', client);
+// Level 
+commandHandler('./../commands/levelsystem/levelchannel.js', client);
+commandHandler('./../commands/levelsystem/levelimage.js', client);
+commandHandler('./../commands/levelsystem/levelmessage.js', client);
+commandHandler('./../commands/levelsystem/leveltoggle.js', client);
+commandHandler('./../commands/levelsystem/levelcheck.js', client);
 // Anime
 commandHandler('./../commands/anime/anime.js', client);
 commandHandler('./../commands/anime/manga.js', client);
@@ -48,12 +55,12 @@ client.on('ready', () => {
 
 	client.user.setActivity(`Haneul A.I.`, { type: "WATCHING" });
 
-	// mysqlhandler.connect();
+	mysqlhandler.connect();
 
 	setInterval(() => {
-		// mysqlhandler.con.query(`SELECT * FROM botsettings WHERE 1`, (err, rows) => {
+		mysqlhandler.con.query(`SELECT * FROM haneul_xp WHERE 1`, (err, rows) => {
 
-		// });
+		});
 	}, 14400000);
 });
 
