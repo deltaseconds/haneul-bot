@@ -46,7 +46,7 @@ module.exports = {
                     if (rows.length < 1) {
 
                     } else {
-                        let value = rows[0].welcome_message;
+                        let value = rows[0].level_message;
                         const cmdHelpEmbed = new Discord.MessageEmbed()
                             .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                             .addField('Information', 'Current Level Up Message', false)
@@ -77,7 +77,7 @@ module.exports = {
                 if (rows.length < 1) {
 
                 } else {
-                    let value = rows[0].welcome_message;
+                    let value = rows[0].level_message;
                     if (value === null) {
                         const cmdHelpEmbed = new Discord.MessageEmbed()
                             .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)

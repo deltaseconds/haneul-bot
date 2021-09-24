@@ -19,6 +19,10 @@ module.exports = (cmdfile, client) => {
 			}
 		}
 	} catch (error) {
+		
+		
 		console.log(CONSOLEPREFIX + '[ERROR] Commandfile (' + cmdfile + ') not found')
+		console.log(error);
 	}
+
 };

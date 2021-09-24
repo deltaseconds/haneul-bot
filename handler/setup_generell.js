@@ -31,11 +31,23 @@ function deleteguild(from, guildid) {
     });
 
 }
+function generalSetup(guildid) {
+    set("haneul_xp", guildid);
+    set("haneul_quit", guildid);
+    set("haneul_welcome", guildid);
+}
 
+function generalDel(guildid) {
+    deleteguild("haneul_xp", guildid);
+    deleteguild("haneul_quit", guildid);
+    deleteguild("haneul_welcome", guildid);
+}
 
 
 module.exports =
 {
     set,
-    deleteguild
+    deleteguild,
+    generalDel,
+    generalSetup
 }

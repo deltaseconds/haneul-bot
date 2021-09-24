@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const fs = require('fs');
 
+const Canvas = require("discord-canvas");
+
 // Import Files
 const config = require("./utils/config.json");
 
@@ -43,7 +45,7 @@ commandHandler('./../commands/levelsystem/levelchannel.js', client);
 commandHandler('./../commands/levelsystem/levelimage.js', client);
 commandHandler('./../commands/levelsystem/levelmessage.js', client);
 commandHandler('./../commands/levelsystem/leveltoggle.js', client);
-commandHandler('./../commands/levelsystem/levelcheck.js', client);
+commandHandler('./../commands/levelsystem/rank.js', client);
 // Anime
 commandHandler('./../commands/anime/anime.js', client);
 commandHandler('./../commands/anime/manga.js', client);

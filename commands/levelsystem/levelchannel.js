@@ -47,7 +47,7 @@ module.exports = {
                     if (rows.length < 1) {
     
                     } else {
-                        let value = rows[0].quit_channel;
+                        let value = rows[0].level_channel;
                         const cmdHelpEmbed = new Discord.MessageEmbed()
                         .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
                         .addField('Information', 'Current Level Up Message Channel', false)
@@ -74,7 +74,7 @@ module.exports = {
                 if (rows.length < 1) {
 
                 } else {
-                    let value = rows[0].quit_channel;
+                    let value = rows[0].level_channel;
                     if (value === null) {
                         const cmdHelpEmbed = new Discord.MessageEmbed()
                             .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
@@ -84,7 +84,7 @@ module.exports = {
                             .setColor(embedColor);
                         client.channels.cache.get(channelid).send(cmdHelpEmbed);
 
-                        sql = `UPDATE haneul_xp SET quit_channel = '` + channelvalue.id + `' WHERE id='${message.guild.id}'`;
+                        sql = `UPDATE haneul_xp SET level_channel = '` + channelvalue.id + `' WHERE id='${message.guild.id}'`;
                         mysqlhandler.con.query(sql);
                     } else {
                         const cmdHelpEmbed = new Discord.MessageEmbed()
@@ -95,7 +95,7 @@ module.exports = {
                             .setColor(embedColor);
                         client.channels.cache.get(channelid).send(cmdHelpEmbed);
 
-                        sql = `UPDATE haneul_xp SET quit_channel = '` + channelvalue.id + `' WHERE id='${message.guild.id}'`;
+                        sql = `UPDATE haneul_xp SET level_channel = '` + channelvalue.id + `' WHERE id='${message.guild.id}'`;
                         mysqlhandler.con.query(sql);
                     }
                 }
