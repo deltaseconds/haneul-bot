@@ -5,7 +5,7 @@ const embedColor = COLORS.default;
 const embedError = COLORS.error;
 
 module.exports = {
-	name: 'quit_toggle',
+	name: 'quittoggle',
 	description: 'Toggle the Quit Message function',
 	aliases: [],
 	usage: '',

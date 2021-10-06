@@ -8,6 +8,8 @@ module.exports = {
 	run: async (message, client) => {
 		if (!message.content.startsWith(PREFIX) || message.author.bot) return;
 		setup_generell.set("haneul_welcome", message.guild.id);
+		setup_generell.set("haneul_quit", message.guild.id);
+		setup_generell.set("haneul_xp", message.guild.id);
 		const args = message.content.slice(PREFIX.length).split(/ +/);
 		const commandName = args.shift().toLowerCase();
 		const command =
@@ -29,7 +31,7 @@ module.exports = {
 			}
 			return message.channel.send(reply);
 		}
-
+		
 		try {
 
 			// Check Player is Muted

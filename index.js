@@ -9,7 +9,7 @@ const config = require("./utils/config.json");
 // Import Handler
 const mysqlhandler = require("./handler/mysql.js");
 
-const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
+const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'USER', 'GUILD_MEMBER'] });
 
 // All Commands and Events
 client.commands = new Discord.Collection();
@@ -36,14 +36,16 @@ commandHandler('./../commands/automation/quitimage.js', client);
 commandHandler('./../commands/automation/quitmessage.js', client);
 commandHandler('./../commands/automation/quittoggle.js', client);
 
+commandHandler('./../commands/automation/joinrole.js', client);
+
 commandHandler('./../commands/automation/welcomechannel.js', client);
 commandHandler('./../commands/automation/welcomeimage.js', client);
 commandHandler('./../commands/automation/welcomemessage.js', client);
 commandHandler('./../commands/automation/welcometoggle.js', client);
 // Level 
-commandHandler('./../commands/levelsystem/levelchannel.js', client);
-commandHandler('./../commands/levelsystem/levelimage.js', client);
-commandHandler('./../commands/levelsystem/levelmessage.js', client);
+// commandHandler('./../commands/levelsystem/levelchannel.js', client);
+// commandHandler('./../commands/levelsystem/levelimage.js', client);
+// commandHandler('./../commands/levelsystem/levelmessage.js', client);
 commandHandler('./../commands/levelsystem/leveltoggle.js', client);
 commandHandler('./../commands/levelsystem/rank.js', client);
 // Anime

@@ -17,31 +17,31 @@ module.exports = {
         let channelid = message.channel.id;
 
         // Check Bot is Bind to a Channel
-        mysqlhandler.con.query(`SELECT * FROM haneul_quit WHERE id = '${message.guild.id}'`, (err, rows) => {
-            if (err) throw err;
+        // mysqlhandler.con.query(`SELECT * FROM haneul_quit WHERE id = '${message.guild.id}'`, (err, rows) => {
+        //     if (err) throw err;
 
-            let sql;
+        //     let sql;
 
-            if (rows.length < 1) {
+        //     if (rows.length < 1) {
 
-            } else {
-                let value = rows[0].generellbouncechannel;
-                if (value === null) {
+        //     } else {
+        //         let value = rows[0].generellbouncechannel;
+        //         if (value === null) {
 
-                } else {
-                    channelid = value;
-                    if (!message.guild.channels.cache.get(channelid)) {
-                        channelid = message.channel.id;
-                        const cmdHelpEmbed = new Discord.MessageEmbed()
-                            .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
-                            .addField('**__NOTE__**', 'The bind channel of the bot was not recognised or deleted. Reconnect it to a channel or reset it.', false)
-                            .setColor(embedError);
-                        client.channels.cache.get(channelid).send(cmdHelpEmbed);
-                        return
-                    }
-                }
-            }
-        });
+        //         } else {
+        //             channelid = value;
+        //             if (!message.guild.channels.cache.get(channelid)) {
+        //                 channelid = message.channel.id;
+        //                 const cmdHelpEmbed = new Discord.MessageEmbed()
+        //                     .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
+        //                     .addField('**__NOTE__**', 'The bind channel of the bot was not recognised or deleted. Reconnect it to a channel or reset it.', false)
+        //                     .setColor(embedError);
+        //                 client.channels.cache.get(channelid).send(cmdHelpEmbed);
+        //                 return
+        //             }
+        //         }
+        //     }
+        // });
 
         setTimeout(() => {
 

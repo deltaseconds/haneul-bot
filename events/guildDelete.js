@@ -11,5 +11,6 @@ module.exports = {
         console.log(CONSOLEPREFIX + `I have been removed from: ${guild.name} (id: ${guild.id})`);
         setup_generell.deleteguild("haneul_quit", guild.id);
 		setup_generell.deleteguild("haneul_welcome", guild.id);
+		setup_generell.deleteguild("haneul_xp", guild.id);
 	},
 };

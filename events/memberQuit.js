@@ -32,19 +32,18 @@ module.exports = {
 	},
 };
 
-async function sendQuit(member, client, quittoggle, quitChannel, quitMessage, quitImage) {
-    if (quittoggle === '1') {
+async function sendQuit(member, client, welcometoggle, welcomeChannel, welcomeMessage, welcomeImage) {
+    if (welcometoggle === '1') {
+        const welcome = await new discanvas.Welcome()
+            .setAvatar(member.user.displayAvatarURL({ format: 'png' }))
+            .setUsername(member.user.tag)
+            .setBackground("BACKGROUND", welcomeImage)
+            .setMainText("Goodbye")
+            .setSecondText(welcomeMessage)
+            .toWelcome()
 
-        const leave = await new discanvas.Leave()
-        .setAvatar(member.user.displayAvatarURL({ format: 'png' }))
-        .setUsername(member.user.tag)
-        .setBackground("BACKGROUND", quitImage)
-        .setMainText("Goodbye")
-        .setSecondText(quitMessage)
-        .toLeave()
-    
-        const attachment = new Discord.MessageAttachment(leave.toBuffer(), "leave.jpg");
-        const setchannel = client.channels.cache.get(quitChannel);
+        const attachment = new Discord.MessageAttachment(welcome.toBuffer(), "welcome.jpg");
+        const setchannel = client.channels.cache.get(welcomeChannel);
 
         if (!setchannel) {
             return

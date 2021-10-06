@@ -14,34 +14,6 @@ module.exports = {
 	execute: async (message, args, client) => {
 		const { commands } = message.client;
 		let channelid = message.channel.id;
-
-		// Check Bot is Bind to a Channel
-		// mysqlhandler.con.query(`SELECT * FROM botsettings WHERE id = '${message.guild.id}'`, (err, rows) => {
-        //     if (err) throw err;
-    
-        //     let sql;
-
-        //     if (rows.length < 1) {
-
-		// 	 } else {
-        //         let value = rows[0].generellbouncechannel;
-		// 		if (value === null) {
-
-		// 		} else {
-		// 			channelid = value;
-					// if (!message.guild.channels.cache.get(channelid)) {
-						// channelid = message.channel.id;
-						// const cmdHelpEmbed = new Discord.MessageEmbed()
-						// .setAuthor('Haneul A.I. (' + VERSION + ') - Information', IMAGE_INFOEMBED)
-						// .addField('**__NOTE__**', 'The bind channel of the bot was not recognised or deleted. Reconnect it to a channel or reset it.', false)
-						// .setColor(embedError);
-						// client.channels.cache.get(channelid).send(cmdHelpEmbed);
-						// return
-					// }
-				// }
-            // }
-        // });
-
 		setTimeout(() => {
 
 			if (!args.length) {
@@ -88,6 +60,21 @@ module.exports = {
 				client.channels.cache.get(channelid).send(cmdHelpEmbed);
 				return
 			}
+
+			//Leveling
+			if (name === 'leveling') {
+				const cmdHelpEmbed = new Discord.MessageEmbed()
+				.setAuthor('Haneul A.I. (' + VERSION + ') - Leveling Section', IMAGE_INFOEMBED)
+				.addField('⚙️ ' + PREFIX + 'leveltoggle', '*Toggle the Level System*', false)
+				.addField('' + PREFIX + 'rank <@>', '*Check your or someone\'s Level*', false)
+				.addField('**__NOTE__**', 'You can also find out more details\nabout the command with `h!help [command]`.', false)
+				.setImage(IMAGE_HELP)
+				.setTimestamp()
+				.setColor(embedColor)
+				.setFooter('Support is available at discord.haneul.xyz');
+				client.channels.cache.get(channelid).send(cmdHelpEmbed);
+				return
+			}
 	 
 			// Moderation
 			if (name === 'moderation') {
@@ -111,7 +98,7 @@ module.exports = {
 			if (name === 'bot-settings') {
 				const cmdHelpEmbed = new Discord.MessageEmbed()
 				.setAuthor('Haneul A.I. (' + VERSION + ') - Bot Channel Section', IMAGE_INFOEMBED)
-				.addField(':gear: ' + PREFIX + 'boundchannel', '*Binds the bot to a specific channel, mention the same to unbind*', false)
+				// .addField(':gear: ' + PREFIX + 'boundchannel', '*Binds the bot to a specific channel, mention the same to unbind*', false)
 				.addField('**__NOTE__**', 'You can also find out more details\nabout the command with `h!help [command]`.', false)
 				.setImage(IMAGE_HELP)
 				.setTimestamp()
@@ -120,6 +107,7 @@ module.exports = {
 				client.channels.cache.get(channelid).send(cmdHelpEmbed);
 				return
 			}
+
 	
 			const command =
 				commands.get(name) ||
