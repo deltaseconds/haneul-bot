@@ -20,30 +20,25 @@ module.exports = {
                 let quittoggle = rows[0].quit_toggle;
                 let quitChannel = rows[0].quit_channel;
                 let quitMessage = rows[0].quit_message;
-                let quitImage = rows[0].quit_image;
     
                 if (quittoggle === '0') {
     
                 } else {
-                    sendQuit(member, client, quittoggle, quitChannel, quitMessage, quitImage)
+                    sendQuit(member, client, quittoggle, quitChannel, quitMessage);
                 }
             }
         });
 	},
 };
 
-async function sendQuit(member, client, welcometoggle, welcomeChannel, welcomeMessage, welcomeImage) {
+async function sendQuit(member, client, welcometoggle, welcomeChannel, welcomeMessage) {
     if (welcometoggle === '1') {
-        const welcome = await new discanvas.Welcome()
-            .setAvatar(member.user.displayAvatarURL({ format: 'png' }))
-            .setUsername(member.user.tag)
-            .setBackground("BACKGROUND", welcomeImage)
-            .setMainText("Goodbye")
-            .setSecondText(welcomeMessage)
-            .toWelcome()
-
-        const attachment = new Discord.MessageAttachment(welcome.toBuffer(), "welcome.jpg");
-        const setchannel = client.channels.cache.get(welcomeChannel);
+        
+        if(welcomeMessage) {
+            var replaced1 = welcomeMessage.replace('{USER}', member.user.tag);
+            var replaced2 = replaced1.replace('{SERVER}', member.guild.name);
+            welcomeChannel.send(replaced2);
+        }
 
         if (!setchannel) {
             return
