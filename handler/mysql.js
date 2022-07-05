@@ -3,17 +3,17 @@ const mysql = require("mysql");
 const config = require("../utils/config.json");
 
 var con = mysql.createConnection({
-    host: 'web8781.cweb04.gamingweb.de',
-    user: 'kogeki',
-    password: 'X34Z9JJiK31',
-    database: 'discordbots',
-    charset : 'utf8mb4'
+    host: 'plesk10.zap-webspace.com',
+    user: 'chizuru',
+    password: 'h+A%LVNWps/d~2hy',
+    database: 'chizuru',
+    charset: 'utf8mb4'
 });
 
 function connect() {
 
     con.connect(err => {
-        if(err) throw err;
+        if (err) throw err;
         console.log(config.CONSOLEPREFIX + "Connection to MySQL has been established!");
     });
 

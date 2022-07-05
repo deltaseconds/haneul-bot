@@ -1,9 +1,9 @@
 {
 	"PREFIX": "h!",
-	"BOT_TOKEN": "redacted",
-    "NOPERMS": "You're not authorised to use this.",
-    "CONSOLEPREFIX": "Haneul A.I. | ",
-    "VERSION": "v0.0.1",
+	"BOT_TOKEN": "OTkzNzQ3NzQyNzY3NzE4NDYx.GKsIKm.hJE_RlgxZqoAAo36V6X4vLNGnt4TB8itppQQ24",
+	"NOPERMS": "You're not authorised to use this.",
+	"CONSOLEPREFIX": "Haneul A.I. | ",
+	"VERSION": "v0.0.1",
 	"IMAGE_HELP": "https://www.wallpapersun.com/wp-content/uploads/2020/12/Lofi-Aesthetic-Wallpaper-21-715x402.jpg",
 	"IMAGE_INFOEMBED": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSiQ6n8G_PQMdf6v5jWDVfIMy95N2Dp9sqMheXuI_Kje7UfAvd6iGmrHsCcbABoW17nFI&usqp=CAU",
 	"COLORS": {

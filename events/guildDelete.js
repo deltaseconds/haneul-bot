@@ -8,8 +8,8 @@ const embedError = COLORS.error;
 module.exports = {
 	event: 'guildDelete',
 	run: async (guild) => {
-        console.log(CONSOLEPREFIX + `I have been removed from: ${guild.name} (id: ${guild.id})`);
-        setup_generell.deleteguild("haneul_quit", guild.id);
+		console.log(CONSOLEPREFIX + `I have been removed from: ${guild.name} (id: ${guild.id})`);
+		setup_generell.deleteguild("haneul_quit", guild.id);
 		setup_generell.deleteguild("haneul_welcome", guild.id);
 	},
 };
