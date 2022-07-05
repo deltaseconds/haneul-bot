@@ -7,6 +7,7 @@ module.exports = {
 	event: 'message',
 	run: async (message, client) => {
 		if (!message.content.startsWith(PREFIX) || message.author.bot) return;
+		if (message.channel.type === 'dm') return;
 		setup_generell.set("haneul_welcome", message.guild.id);
 		setup_generell.set("haneul_quit", message.guild.id);
 		setup_generell.set("haneul_xp", message.guild.id);
@@ -38,8 +39,8 @@ module.exports = {
 			mysqlhandler.con.query(`SELECT * FROM mute WHERE id = '${message.guild.id}' AND userid = '${message.author.id}'`, (err, rows) => {
 				if (err) throw err;
 				mysqlhandler.con.query(`SELECT * FROM haneul_level WHERE id = '${message.guild.id}' AND userid = '${message.author.id}'`, (err, levelrow) => {
-					if(!levelrow[0]) {
-						let sql = "INSERT INTO `haneul_level`(`id`, `userid`) VALUES ('" + message.guild.id +"','" + message.author.id + "')";
+					if (!levelrow[0]) {
+						let sql = "INSERT INTO `haneul_level`(`id`, `userid`) VALUES ('" + message.guild.id + "','" + message.author.id + "')";
 						mysqlhandler.con.query(sql);
 					} else {
 						let sql;
@@ -50,11 +51,11 @@ module.exports = {
 
 				if (rows.length < 1) {
 
-					if(message.content.includes('"')) return message.channel.send('Please refrain from using " in your messages.'); 
+					if (message.content.includes('"')) return message.channel.send('Please refrain from using " in your messages.');
 
 					command.execute(message, args, client);
 				} else {
-					
+
 				}
 			});
 
